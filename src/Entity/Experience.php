@@ -30,7 +30,17 @@ class Experience
     /**
      * @ORM\Column(type="date")
      */
-    private $date;
+    private $beginDate;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $endDate;
 
     public function getId(): ?int
     {
@@ -61,14 +71,38 @@ class Experience
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getBeginDate(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->beginDate;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setBeginDate(\DateTimeInterface $beginDate): self
     {
-        $this->date = $date;
+        $this->beginDate = $beginDate;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate(?\DateTimeInterface $endDate): self
+    {
+        $this->endDate = $endDate;
 
         return $this;
     }
