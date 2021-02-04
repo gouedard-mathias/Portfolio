@@ -11,6 +11,12 @@
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.userInfo.description) }}
+        {{ form_row(registrationForm.userInfo.age) }}
+        {{ form_row(registrationForm.userInfo.address) }}
+        {{ form_row(registrationForm.userInfo.linkedin) }}
+        {{ form_row(registrationForm.userInfo.github) }}
+        {{ form_row(registrationForm.userInfo.pictureFile) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
