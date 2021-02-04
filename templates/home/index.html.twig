@@ -1,8 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-    <img src="/uploads/images/{{ user.picture }}" alt="profile picture">
-    <p>{{ user.description }}</p>
+    <svg class="polygon" height="950" width="500">
+        <polygon points="0,0 70,0 300,950 0,950" style="fill:#72b625;stroke:black;stroke-width:1" />
+    </svg>
+    <div class="home">
+        <img src="/uploads/images/{{ user.userInfo.picture }}" alt="profile picture">
+        <h3 class="name">MATHIAS GOUEDARD</h3>
+        <div class="description">
+            <h2>Bonjour !</h2>
+            <h1 class="title">JE M'APPELLE <strong>MATHIAS GOUEDARD</strong></h1>
+            <p>{{ user.userInfo.description }}</p>
+        </div>
+    </div>
 {% endblock %}

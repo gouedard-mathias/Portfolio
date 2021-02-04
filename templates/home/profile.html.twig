@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profil{% endblock %}
+
+{% block body %}
+   <h1 class="title">MON <strong>PROFIL</strong></h1>
+    <div class="container">
+        <div class="personnel">
+            <h3>INFORMATIONS PERSONNELLES :</h3>
+            <div class="info">
+                <div class="left">
+                    <p>Prénom : <strong>Mathias</strong></p>
+                    <p>Nom : <strong>GOUEDARD</strong></p>
+                    <p>Age : <strong>{{ user.userInfo.age }}</strong></p>
+                </div>
+                <div class="right">
+                    <p>Nationalité : <strong>française</strong></p>
+                    <p>Adresse : <strong>Bordeaux</strong></p>
+                    <p>Email : <strong>{{ user.email }}</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="data">
+            <div class="left-data">
+                <div class="box">
+                    <h2><strong>{{ user.userInfo.age - 24 }}</strong></h2>
+                    <p>Années d'expériences</p>
+                </div>
+                <div class="box">
+                    <h2><strong>{{ projects|length }}</strong></h2>
+                    <p>Projets Réalisés</p>
+                </div>
+            </div>
+            <div class="right-data">
+                <div class="box">
+                    <h2><strong>{{ clients|length }}</strong></h2>
+                    <p>Clients</p>
+                </div>
+                <div class="box">
+                    <h2><strong>{{ projects|length }}</strong></h2>
+                    <p>Projets Réalisés</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h3 class="title">MES <strong>COMPETENCES</strong></h3>
+    <div class="skills">
+        {% for skill in skills %}
+            <div class="skill">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ skill.rate }}%" aria-valuenow="{{ skill.rate }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <h3>{{ skill.name }}</h3>
+            </div>
+        {% endfor %}
+    </div>
+    <hr>
+    <h3 class="title">MES <strong>EXPERIENCES</strong></h3>
+    <div class="exps">
+        {% for experience in experiences %}
+            <div class="exp">
+                <i class="fas fa-toolbox fa-2x"></i>
+                <div class="exp-box">
+                    <p>{{ experience.beginDate|date("m/d/Y") }} / {{ experience.endDate|date("m/d/Y") }} : {{ experience.location }}</p>
+                    <h3>{{ experience.title }}</h3>
+                    <p>{{ experience.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
