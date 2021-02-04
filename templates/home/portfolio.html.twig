@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block body %}
+<h1 class="title">PORTFOLIO</h1>
+    <div class="portfolio">
+        {% for project in projects %}
+            <a href="#">
+                <div class="back">
+                    <h3>{{ project.title }}</h3>
+                </div>
+                <img src="{{ vich_uploader_asset(project.galleries[0], 'pictureFile') }}" alt="{{ project.title }}">
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

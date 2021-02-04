@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+    <h1>Add picture</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.pictureFile) }}
+    {{ form_row(form.project) }}
+    <button type="submit" class="btn btn-success">Register</button>
+    {{ form_end(form) }}
+{% endblock %}

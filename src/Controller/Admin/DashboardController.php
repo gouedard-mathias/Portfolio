@@ -46,5 +46,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Client', 'fas fa-list', Client::class);
         yield MenuItem::linkToCrud('Gallery', 'fas fa-list', Gallery::class);
         yield MenuItem::linkToCrud('Message', 'fas fa-list', Message::class);
+        yield MenuItem::linktoRoute('add picture', 'fas fa-image', 'add_picture');
     }
 }

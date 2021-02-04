@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\ClientRepository;
 use App\Repository\ExperienceRepository;
+use App\Repository\MessageRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\SkillRepository;
 use App\Repository\UserRepository;
@@ -47,6 +48,26 @@ class HomeController extends AbstractController
             'clients' => $clients,
             'skills' => $skills,
             'experiences' => $experiences,
+        ]);
+    }
+
+    /**
+     * @Route("/portfolio", name="portfolio")
+     */
+    public function portfolio(ProjectRepository $projectRepository): Response
+    {
+        $projects = $projectRepository->findAll();
+        return $this->render('home/portfolio.html.twig', [
+            'projects' => $projects,
+        ]);
+    }
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact(): Response
+    {
+        return $this->render('home/contact.html.twig', [
         ]);
     }
 }
