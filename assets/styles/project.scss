@@ -1,0 +1,39 @@
+.github {
+  width: 50px;
+  height: 50px;
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: $font-color;
+    background-color: $first-color;
+    border-radius: 25px;
+  }
+}
+
+
+.gallery{
+  margin-right: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  img{
+    margin: 20px;
+    width: 340px;
+    height: 210px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .gallery {
+    margin-right: 0;
+    img {
+      max-width: 340px;
+      max-height: 210px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

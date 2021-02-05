@@ -17,8 +17,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ path('contact') }}">
                     <i class="fas fa-envelope fa-2x"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin') }}">
+                    <i class="fas fa-user-cog fa-2x"></i>
                 </a>
             </li>
         </ul>
@@ -37,7 +42,10 @@
                     <a class="nav-link" href="{{ path('portfolio') }}">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin') }}">Admin</a>
                 </li>
             </ul>
         </div>

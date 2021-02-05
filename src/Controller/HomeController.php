@@ -2,13 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Message;
+use App\Entity\Project;
+use App\Form\ContactType;
 use App\Repository\ClientRepository;
 use App\Repository\ExperienceRepository;
 use App\Repository\MessageRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\SkillRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -63,11 +68,35 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/project/{project}", name="project")
+     */
+    public function project(Project $project): Response
+    {
+        return $this->render('home/project.html.twig', [
+            'project' => $project,
+        ]);
+    }
+
+    /**
      * @Route("/contact", name="contact")
      */
-    public function contact(): Response
+    public function contact(Request $request, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
     {
+        $user = $userRepository->findOneBy([]);
+        $message = new Message();
+        $message->setIsSee(false);
+        $form = $this->createForm(ContactType::class, $message);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($message);
+            $entityManager->flush();
+            return $this->redirectToRoute('portfolio');
+        }
+
         return $this->render('home/contact.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 }

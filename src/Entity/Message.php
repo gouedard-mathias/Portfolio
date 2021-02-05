@@ -43,6 +43,11 @@ class Message
      */
     private $createdAt;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isSee;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -115,5 +120,17 @@ class Message
     public function onPrePersist()
     {
         $this->createdAt = new \DateTime();
+    }
+
+    public function getIsSee(): ?bool
+    {
+        return $this->isSee;
+    }
+
+    public function setIsSee(bool $isSee): self
+    {
+        $this->isSee = $isSee;
+
+        return $this;
     }
 }

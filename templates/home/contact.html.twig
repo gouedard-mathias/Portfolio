@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <h1 class="title">Contact</h1>
+    <div class="container">
+        <div class="left-box">
+            <h3>Ne soyez pas timide!</h3>
+            <p>
+                N'hésitez pas à me contacter. Je suis toujours ouvert à la discussion au sujet de nouveaux projets, d'idées créatives ou de nouvelles opportunitées.
+            </p>
+            <div class="email">
+                <i class="fas fa-envelope-open fa-2x"></i>
+                <p>{{ user.email }}</p>
+            </div>
+            <div class="link">
+                <div>
+                    <a href="{{ user.userInfo.github }}">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ user.userInfo.linkedin }}">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            {{ form_start(form) }}
+            <div class="box">
+                {{ form_row(form.name) }}
+                {{ form_row(form.subject) }}
+                {{ form_row(form.email) }}
+            </div>
+            {{ form_row(form.comment) }}
+            <button type="submit" class="btn btn-success">Register</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

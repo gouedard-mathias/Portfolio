@@ -1,0 +1,2 @@
+id,email,roles,password
+1,m-gouedard40500@hotmail.fr,["ROLE_USER", "ROLE_ADMIN"],"$argon2id$v=19$m=65536,t=4,p=1$El18n9l/D5RBBsfv3X3dZw$ohCBDRc2LEIVGkORMgMWkRmHsgpphMgWqVrbuk4iN5A"
