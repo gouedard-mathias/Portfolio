@@ -23,7 +23,7 @@
         <div class="data">
             <div class="left-data">
                 <div class="box">
-                    <h2><strong>{{ user.userInfo.age - 24 }}</strong></h2>
+                    <h2><strong>0,5</strong></h2>
                     <p>Années d'expériences</p>
                 </div>
                 <div class="box">
@@ -62,7 +62,7 @@
             <div class="exp">
                 <i class="fas fa-toolbox fa-2x"></i>
                 <div class="exp-box">
-                    <p>{{ experience.beginDate|date("m/d/Y") }} / {{ experience.endDate|date("m/d/Y") }} : {{ experience.location }}</p>
+                    <p>{{ experience.beginDate|date("d/m/Y") }} / {{ experience.endDate|date("d/m/Y") }} : {{ experience.location }}</p>
                     <h3>{{ experience.title }}</h3>
                     <p>{{ experience.description }}</p>
                 </div>

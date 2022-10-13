@@ -21,19 +21,19 @@ class ContactType extends AbstractType
                     'placeholder' => 'Nom'
                 ]
             ])
+            ->add('email', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form',
+                    'placeholder' => 'email'
+                ]
+            ])
             ->add('subject', TextType::class, [
                 'required'   => false,
                 'label' => false,
                 'attr' => [
                     'class' => 'form',
                     'placeholder' => 'sujet'
-                ]
-            ])
-            ->add('email', TextType::class, [
-                'label' => false,
-                'attr' => [
-                    'class' => 'form',
-                    'placeholder' => 'email'
                 ]
             ])
             ->add('comment', TextareaType::class, [

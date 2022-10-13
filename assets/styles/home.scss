@@ -13,6 +13,7 @@
     border-radius: 10px;
     margin-left: 60px;
     margin-top: 350px;
+    margin-right: 20px;
   }
   .name {
     display: none;
@@ -23,6 +24,18 @@
     p {
       width: 600px;
     }
+  }
+  .button {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 35px;
+    color: white;
+    border-radius: 40px;
+    display: inline-block;
+    white-space: nowrap;
+    border: none;
+    background: $first-color;
+    transition: all 0.3s ease;
   }
 }
 

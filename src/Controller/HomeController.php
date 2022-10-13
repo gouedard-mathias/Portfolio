@@ -13,6 +13,7 @@ use App\Repository\SkillRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,6 +30,15 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
             'user' => $user,
         ]);
+    }
+
+    /**
+     * @Route("/cv", name="cv")
+     */
+    public function download(): BinaryFileResponse
+    {
+        // send the file contents and force the browser to download it
+        return $this->file('/home/gouedard/wild-code-school/checkpoint/checkpoint4/portfolio/public/uploads/CV_Mathias_GOUEDARD.pdf');
     }
 
     /**

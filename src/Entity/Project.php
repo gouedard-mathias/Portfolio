@@ -67,7 +67,7 @@ class Project
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=Gallery::class, mappedBy="project")
+     * @ORM\OneToMany(targetEntity=Gallery::class, mappedBy="project", cascade={"remove"})
      */
     private $galleries;
 

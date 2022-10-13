@@ -73,8 +73,9 @@ hr {
 
 .exps {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   .exp {
+    width: 600px;
     display: flex;
     justify-content: space-around;
     .exp-box {
@@ -92,5 +93,14 @@ hr {
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
+    .info {
+      flex-direction: column;
+    }
+  }
+  .exps {
+    flex-direction: column;
+    .exp {
+      width: 100%;
+    }
   }
 }
