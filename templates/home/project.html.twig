@@ -23,12 +23,12 @@
             <h3>Description :</h3>
             {{ project.description }}
         </div>
-{#        <div class="link">#}
-{#            {% if project.video %}#}
-{#                <h3>Video :</h3>#}
-{#                <p>{{ project.video }}</p>#}
-{#            {% endif %}#}
-{#        </div>#}
+        {#        <div class="link"> #}
+        {#            {% if project.video %} #}
+        {#                <h3>Video :</h3> #}
+        {#                <p>{{ project.video }}</p> #}
+        {#            {% endif %} #}
+        {#        </div> #}
     </div>
     <hr>
     <div class="d-flex justify-content-center">
@@ -36,7 +36,14 @@
     </div>
     <div class="gallery">
         {% for picture in project.galleries %}
-            <img src="{{ vich_uploader_asset(picture, 'pictureFile') }}" alt="{{ picture.picture }}">
+            <img class="modal-open" data-modal="modal{{ loop.index }}"
+                 src="{{ vich_uploader_asset(picture, 'pictureFile') }}" alt="{{ picture.picture }}">
+            <div id="modal{{ loop.index }}" class="modal">
+                <div class="modal-content modal-close">
+                    <img width="100%" src="{{ vich_uploader_asset(picture, 'pictureFile') }}"
+                         alt="{{ picture.picture }}"/>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
